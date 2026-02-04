@@ -1,18 +1,35 @@
 # Leaflet Map Lab
 
-A minimal vanilla HTML/CSS/JS map app using Leaflet and OpenStreetMap tiles, with a grid overlay for toolbars and widgets.
+## Purpose
+
+Just a lab repo to play with the JavaScript mapping library [Leaflet](https://leafletjs.com/)
+
+### Tech Stack
+
+Keeping it simple to focus on layout and JavaScript interactions.
+
+- HTMLttttttttt
+
+## Technical Notes
+
+- Basemap
+
+  - Uses [OpenStreetMap](https://www.openstreetmap.org/#map=15/40.000/-105.000) tiles
+    - No API key or registration required!
+    - Different basemap themes that can be specified
+
+- Leaflet via CDN
+  - Include Leaflet.css
+    - Before your styles.css
+  - Include Leaflet.js
+    - At the end of body (after load) and before your script.js.
+  - Map container
+    - The map div must have a defined height. Leaflet won’t show until the container has dimensions.
+  - Init order in script.js
+    - Create map: L.map('map').setView([lat, lng], zoom).
+    - Add OSM layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '...', maxZoom: 10 }).addTo(map)
+      - Here {y} is the map style.
 
 ## Run
 
-No server is required. Open `index.html` in any browser (double-click or drag into the window).
-
-Optional: if you want a local URL (e.g. for in-editor preview or sharing), run from the project folder: `npx serve .` then open `http://localhost:3000`.
-
-### VS Code / Cursor
-
-- **Preview in default browser** — Press **F5** (or Run and Debug → **Preview: Default browser**). Starts the server and opens `http://localhost:3000` in your default browser. Stop the debug session to stop the server.
-- **Preview in editor** — **Terminal** → **Run Task…** → **Preview in Editor**. Starts the server and opens the built-in Simple Browser. The server keeps running in the task terminal until you stop it (Ctrl+C in that terminal).
-
-## Basemap
-
-Uses OpenStreetMap tiles with no API key or registration required.
+No server required. Open `index.html` in any browser.
