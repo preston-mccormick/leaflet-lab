@@ -1,0 +1,58 @@
+/* CSS variables for layout */
+:root {
+  --map-margin: 1rem;
+  --cell-gap: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#grid-overlay {
+  position: absolute;
+  inset: var(--map-margin);
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 10%;
+  grid-template-rows: 10% 1fr 1fr 10%;
+  gap: var(--cell-gap);
+  pointer-events: none;
+  grid-template-areas:
+    "upper-left  top         top         upper-right"
+    "upper-left  center      center      upper-right"
+    "lower-left  center      center      lower-right"
+    "lower-left  bottom      bottom      lower-right";
+}
+
+#grid-overlay .slot {
+  pointer-events: none; /* clicks pass through to map; use pointer-events: auto on buttons/controls */
+}
+
+#grid-overlay .upper-left  { grid-area: upper-left; }
+#grid-overlay .upper-right { grid-area: upper-right; }
+#grid-overlay .lower-left  { grid-area: lower-left; }
+#grid-overlay .lower-right { grid-area: lower-right; }
+#grid-overlay .top         { grid-area: top; }
+#grid-overlay .bottom      { grid-area: bottom; }
+#grid-overlay .center      { grid-area: center; }
