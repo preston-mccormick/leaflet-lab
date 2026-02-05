@@ -1,10 +1,14 @@
 /* CSS variables for layout */
 :root {
-  --map-margin: 1rem;
-  --cell-gap: 0.5rem;
+  --map-margin: 10px;
+  --cell-gap: 3px;
+  --layout-opacity: 0.25;
+  --toolbar-unit: 60px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,6 +25,18 @@ html, body {
   height: 100vh;
 }
 
+#title {
+  font-family:  Verdana, sans-serif;
+  font-size: calc(var(--toolbar-unit) - 16px);
+  font-weight: normal;
+  color: dimgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: gray 8px 6px 4px;
+  opacity: 0.75;
+}
+
 #map {
   position: absolute;
   inset: 0;
@@ -34,8 +50,8 @@ html, body {
   inset: var(--map-margin);
   z-index: 1;
   display: grid;
-  grid-template-columns: 10% 1fr 1fr 10%;
-  grid-template-rows: 10% 1fr 1fr 10%;
+  grid-template-columns: var(--toolbar-unit) 1fr 1fr var(--toolbar-unit);
+  grid-template-rows: calc(var(--toolbar-unit) * 1) 1fr 1fr calc(var(--toolbar-unit) * 3);
   gap: var(--cell-gap);
   pointer-events: none;
   grid-template-areas:
@@ -45,7 +61,7 @@ html, body {
     "lower-left  bottom      bottom      lower-right";
 }
 
-#grid-overlay .slot {
+#grid-overlay .over-map {
   pointer-events: none; /* clicks pass through to map; use pointer-events: auto on buttons/controls */
 }
 
@@ -56,3 +72,9 @@ html, body {
 #grid-overlay .top         { grid-area: top; }
 #grid-overlay .bottom      { grid-area: bottom; }
 #grid-overlay .center      { grid-area: center; }
+
+.red { background-color: rgba(255, 0, 0, var(--layout-opacity)); }
+.blue { background-color: rgba(0, 0, 255, var(--layout-opacity)); }
+.green { background-color: rgba(0, 255, 0, var(--layout-opacity)); }
+.yellow { background-color: rgba(255, 255, 0, var(--layout-opacity)); }
+.orange { background-color: rgba(255, 165, 0, var(--layout-opacity)); }
