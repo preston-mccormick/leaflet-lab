@@ -76,9 +76,9 @@ osm.addTo(map);
 
 // Base layers (only one active at a time)
 const baseLayers = {
-  OpenStreetMap: osm,
-  Satellite: satellite,
-  Topographic: topo,
+  "Streets (OpenStreetMap)": osm,
+  "Satellite (Esri World Imagery)": satellite,
+  "Topographic (OpenTopoMap)": topo,
 };
 
 // Overlays (can be toggled on top of any base)
