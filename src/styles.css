@@ -5,6 +5,7 @@
   --layout-opacity: 0.25;
   --toolbar-unit: 60px;
   --drop-shadow: dimgray 4px 4px 12px;
+  --snow-overlay-opacity: 0.6;
 }
 
 *,
@@ -116,4 +117,49 @@ html, body {
   background-size: 60% !important;
   border: none !important;
   border-radius: 2px !important;
+}
+
+/* Legend control */
+.leaflet-legend {
+  padding: 8px 10px;
+  background: seashell;
+  border-radius: 2px;
+  box-shadow: var(--drop-shadow);
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 280px;
+}
+
+.leaflet-legend .legend-block {
+  margin-top: 8px;
+}
+
+.leaflet-legend .legend-block:first-of-type {
+  margin-top: 0;
+}
+
+.leaflet-legend .legend-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.leaflet-legend .legend-scale {
+  display: grid;
+  grid-template-columns: 14px auto;
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.leaflet-legend .legend-row {
+  display: contents;
+}
+
+.leaflet-legend .legend-item {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #333;
+  border-radius: 1px;
+  flex-shrink: 0;
+  opacity: var(--snow-overlay-opacity);
 }
