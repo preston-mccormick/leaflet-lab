@@ -101,3 +101,19 @@ html, body {
 .leaflet-control-zoom-out {
   background-color: LavenderBlush !important; /* faint pink */
 }
+
+/* Layer control styling */
+.leaflet-control-layers {
+  box-shadow: var(--drop-shadow) !important;
+  border: none !important;
+  border-radius: 2px !important;
+  background-color: seashell;
+}
+
+.leaflet-control-layers-toggle {
+  width: var(--toolbar-unit) !important;
+  height: var(--toolbar-unit) !important;
+  background-size: 60% !important;
+  border: none !important;
+  border-radius: 2px !important;
+}
