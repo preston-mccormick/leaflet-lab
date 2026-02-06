@@ -91,8 +91,9 @@ like the title and could be a dialog or toasts. */
 
 /* Leaflet control button styling */
 .leaflet-bar {
-  box-shadow: var(--drop-shadow) !important;
+  box-shadow: none !important; /* no container shadow — each button gets its own below */
   border: none !important;
+  background: transparent !important; /* don't show bar between the round buttons */
 }
 
 .leaflet-bar a {
@@ -101,6 +102,9 @@ like the title and could be a dialog or toasts. */
   line-height: var(--toolbar-unit) !important;
   font-size: 40px !important;
   color: dimgrey;
+  border: none !important;
+  border-radius: 50% !important;
+  box-shadow: var(--drop-shadow) !important; /* shadow per button */
 }
 
 .leaflet-control-zoom-in {
@@ -109,6 +113,7 @@ like the title and could be a dialog or toasts. */
 
 .leaflet-control-zoom-out {
   background-color: LavenderBlush !important; /* faint pink */
+  margin-top: 10px !important; /* gap between zoom buttons */
 }
 
 /* Layer control styling */
@@ -119,12 +124,21 @@ like the title and could be a dialog or toasts. */
   background-color: aliceblue;
 }
 
-.leaflet-control-layers-toggle {
+/* When collapsed, only the toggle is visible — round the container so the button looks round */
+.leaflet-control-layers:not(.leaflet-control-layers-expanded) {
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+
+/* Layer toggle: use parent selector so we beat Leaflet's .leaflet-touch .leaflet-control-layers-toggle */
+.leaflet-control-layers .leaflet-control-layers-toggle,
+.leaflet-touch .leaflet-control-layers .leaflet-control-layers-toggle {
   width: var(--toolbar-unit) !important;
   height: var(--toolbar-unit) !important;
   background-size: 60% !important;
   border: none !important;
-  border-radius: 2px !important;
+  border-radius: 50% !important;
+  overflow: hidden; /* clip background image to circle */
 }
 
 /* Legend control */
