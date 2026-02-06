@@ -28,13 +28,13 @@ html, body {
 
 #title {
   font-family:  Verdana, sans-serif;
-  font-size: calc(var(--toolbar-unit) - 8px);
+  font-size: calc(var(--toolbar-unit));
   font-weight: normal;
-  color: dimgrey;
+  color: honeydew;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: var(--drop-shadow);
+  text-shadow: black 4px 4px 12px;
   opacity: 0.9;
 }
 
