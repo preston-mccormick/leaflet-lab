@@ -1,9 +1,10 @@
 /* CSS variables for layout */
 :root {
-  --map-margin: 10px;
-  --cell-gap: 3px;
+  --map-margin: 8px;
+  --cell-gap: 8px;
   --layout-opacity: 0.25;
   --toolbar-unit: 60px;
+  --drop-shadow: dimgray 4px 4px 12px;
 }
 
 *,
@@ -27,14 +28,14 @@ html, body {
 
 #title {
   font-family:  Verdana, sans-serif;
-  font-size: calc(var(--toolbar-unit) - 16px);
+  font-size: calc(var(--toolbar-unit) - 8px);
   font-weight: normal;
   color: dimgrey;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: gray 8px 6px 4px;
-  opacity: 0.75;
+  text-shadow: var(--drop-shadow);
+  opacity: 0.9;
 }
 
 #map {
@@ -78,3 +79,25 @@ html, body {
 .green { background-color: rgba(0, 255, 0, var(--layout-opacity)); }
 .yellow { background-color: rgba(255, 255, 0, var(--layout-opacity)); }
 .orange { background-color: rgba(255, 165, 0, var(--layout-opacity)); }
+
+/* Leaflet control button styling */
+.leaflet-bar {
+  box-shadow: var(--drop-shadow) !important;
+  border: none !important;
+}
+
+.leaflet-bar a {
+  width: var(--toolbar-unit) !important;
+  height: var(--toolbar-unit) !important;
+  line-height: var(--toolbar-unit) !important;
+  font-size: 40px !important;
+  color: dimgrey;
+}
+
+.leaflet-control-zoom-in {
+  background-color: honeydew !important; /* faint green */
+}
+
+.leaflet-control-zoom-out {
+  background-color: LavenderBlush !important; /* faint pink */
+}
